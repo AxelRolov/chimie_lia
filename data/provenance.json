@@ -1,0 +1,88 @@
+{
+  "chembl_release": "ChEMBL_37",
+  "chembl_release_date": "2026-05-01",
+  "target": {
+    "chembl_id": "CHEMBL340",
+    "uniprot": "P08684",
+    "pref_name": "Cytochrome P450 3A4",
+    "organism": "Homo sapiens",
+    "target_type": "SINGLE PROTEIN"
+  },
+  "downloaded_on": "2026-10-21",
+  "rederived_offline_on": "2026-10-21",
+  "prepared_on": "2026-10-21",
+  "sources": {
+    "chembl_activities": {
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL340&standard_type=IC50&limit=1000",
+      "records": 13887,
+      "note": "all pages followed via page_meta.next"
+    },
+    "chembl_assays": {
+      "url": "https://www.ebi.ac.uk/chembl/api/data/assay.json?assay_chembl_id__in=...",
+      "records": 2810
+    },
+    "openadmet": {
+      "url": "https://huggingface.co/datasets/openadmet/cyp-challenge-train-test/resolve/146282d2ce1532f1803679a834a9bec9dac1e482/cyp-challenge-TRAIN_inhibition.csv",
+      "revision": "146282d2ce1532f1803679a834a9bec9dac1e482",
+      "sha256": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278",
+      "rows": 4905,
+      "cyp3a4_values": 2335,
+      "licence": "Apache-2.0 (dataset card)"
+    }
+  },
+  "curation": {
+    "chembl_core_records": 3980,
+    "chembl_core_structures": 3391,
+    "chembl_censored_records": 3710,
+    "chembl_reference_structures": 11237,
+    "openadmet_structures": 2335,
+    "exact_overlap_structures": 52,
+    "standardisation": "Cleanup + LargestFragmentChooser(preferOrganic) + Uncharger; isomeric canonical SMILES; no tautomer canonicalisation"
+  },
+  "files": {
+    "README.md": {
+      "sha256": "1c9d505aab59582bbbad9e500323d2bc35f3f92b85a3ca7d095561d0f05e6cc9",
+      "bytes": 5605
+    },
+    "chembl_cyp3a4_assay_review.csv": {
+      "sha256": "fc5050f55f5115a704d1a1a0f8060fc5d4894bfb7662c2c0309945b9e79c5d15",
+      "bytes": 574579
+    },
+    "chembl_cyp3a4_assays.csv.gz": {
+      "sha256": "675c0fbaf419f8280a850c854dc8ff6ae41bb5ee52f21563a798284f3f385753",
+      "bytes": 59452
+    },
+    "chembl_cyp3a4_censored.csv": {
+      "sha256": "e78bb55075793fce5df3090f92e384f5ef3f61eb0e44c116a83625d46e9baaef",
+      "bytes": 1047002
+    },
+    "chembl_cyp3a4_curated.csv": {
+      "sha256": "75309f7040778bb5b67927ef0a8cc6635c0be50a835021c1e84418b6a7dcc0c5",
+      "bytes": 1200661
+    },
+    "chembl_cyp3a4_funnel.csv": {
+      "sha256": "2fd2358c3962ff7e5fe655f853427bf01e8b56896ed46fc1599f6446a7a8373c",
+      "bytes": 398
+    },
+    "chembl_cyp3a4_ic50_raw.csv.gz": {
+      "sha256": "72220eef51f8ab392f230ddd69f53b853548ebded9274291ac9bc45f763c9761",
+      "bytes": 417020
+    },
+    "chembl_cyp3a4_structures.csv": {
+      "sha256": "07ed2473db0d451672b0a3999ca19c4a350aa265dfd0ff2b7b710e5fcf886cf1",
+      "bytes": 2547501
+    },
+    "chembl_ui_export_sample.csv": {
+      "sha256": "9b65a5180f4f35d2801b22c8178c0e3141e8bd90f6842fbd35c36f99bd74b892",
+      "bytes": 100634
+    },
+    "openadmet_cyp3a4_curated.csv": {
+      "sha256": "3a7789ca71b07d1645fdf0a838bc4b710bf10f16b9d051b3bd7ac96a8b16b567",
+      "bytes": 748026
+    },
+    "openadmet_cyp_train_inhibition.csv": {
+      "sha256": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278",
+      "bytes": 653407
+    }
+  }
+}

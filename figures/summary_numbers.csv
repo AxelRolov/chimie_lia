@@ -1,0 +1,16 @@
+quantity,value
+ChEMBL IC50 records (raw),13887.0
+"ChEMBL records after curation (exact, direct inhibition, nM)",3980.0
+ChEMBL censored records kept separately,3710.0
+ChEMBL unique structures (similarity reference set),11237.0
+OpenADMET rows in the pinned snapshot,4905.0
+OpenADMET compounds with a CYP3A4 value,2335.0
+exact structure overlap,52.0
+median max Tanimoto to ChEMBL,0.325
+OpenADMET compounds with no ChEMBL neighbour at T >= 0.4,2024.0
+ChEMBL distinct Murcko scaffolds,6119.0
+OpenADMET distinct Murcko scaffolds,2095.0
+shared scaffolds,70.0
+OpenADMET ring compounds with a scaffold absent from ChEMBL,2188.0
+scaffolds in a ChEMBL sample of matched size (2329),1763.0
+"PCA explained variance, PC1 + PC2 (%)",69.3

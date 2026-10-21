@@ -1,0 +1,9 @@
+step,records,kept
+all IC50 activity records for CHEMBL340,13887,100.0
+target organism is human,13887,100.0
+assay confidence score 9 (direct protein assignment),10026,72.2
+assay context is direct inhibition (no TDI / induction),8291,59.7
+has a structure,8290,59.7
+no ChEMBL data-validity comment,8173,58.9
+finite positive value in nM,7694,55.4
+standard_relation '=' (the quantitative set),3980,28.7

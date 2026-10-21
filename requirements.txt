@@ -1,0 +1,32 @@
+# Local/offline installation for this workshop.
+# On Google Colab you do NOT need this file: the notebook's setup cell installs what it needs.
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# core
+numpy>=1.26
+pandas>=2.0
+matplotlib
+seaborn
+plotly
+requests
+tqdm
+ipywidgets
+jupyterlab
+
+# chemistry
+rdkit>=2024.3
+mols2grid
+
+# data retrieval
+chembl_webresource_client
+
+# analysis
+scikit-learn>=1.4
+umap-learn
+
+# notebook build system (instructors)
+jupytext
+nbformat
+nbclient

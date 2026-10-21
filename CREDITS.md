@@ -1,0 +1,128 @@
+# Credits and attribution
+
+This workshop is an **adaptation** of open teaching material generously published by the chemoinformatics community.
+Nothing here would exist without it, and the credit for the substance belongs to the authors listed below —
+**thank you** for publishing your work in a form others can learn from and build on.
+
+If you reuse this material, please keep these attributions and cite the **original authors** rather than this
+repository.
+
+---
+
+## Direct parent
+
+### Chemoinformatics tutorials
+<https://github.com/AxelRolov/chemoinformatics_tutorials> · **CC BY 4.0** (compilation), code **MIT**
+
+This workshop reuses and reworks three of its eleven sessions:
+
+- **02 · Molecular representations** → section 5: Morgan/ECFP fingerprints, their parameters, the Tanimoto
+  coefficient, `BulkTanimotoSimilarity` for nearest-neighbour search.
+- **03 · Chemical databases** → sections 1–2: the ChEMBL data model (target / assay / activity), the IC50 and pIC50
+  definitions, the REST API and the `chembl_webresource_client` workflow, and loading open ML-ready datasets.
+- **04 · Exploratory data analysis** → sections 3, 4, 6, 7: `rdMolStandardize` standardisation and deduplication,
+  the descriptor set, Bemis–Murcko scaffold analysis, and the PCA / UMAP chemical-space workflow.
+
+The build system (`src_nb/build.py`, the jupytext percent-format convention, the deterministic cell ids and the CI
+check) is taken from that repository essentially unchanged.
+
+**What this workshop adds:** the matched CYP3A4 dataset pair in place of the EGFR / ExpansionRx examples, the
+manual website-download route, the assay-context review, the cross-source coverage analysis (exact overlap,
+nearest-neighbour, scaffold novelty), the explicit separation of property outliers from novelty outliers, and the
+interactive widgets throughout.
+
+---
+
+## Sources inherited through that collection
+
+### TeachOpenCADD — Volkamer lab
+<https://github.com/volkamerlab/teachopencadd> · **CC BY 4.0**
+
+- **T001** Compound data acquisition (ChEMBL) → the ChEMBL target → assay → activity workflow and the IC50/pIC50
+  theory of section 0 and section 2.
+- **T002** Molecular filtering: ADME and lead-likeness → the descriptor set of section 4.
+- **T005** Compound clustering → the fingerprint and distance machinery reused in section 5.
+- **T011** Querying online API webservices → the paging / retry pattern of section 2.
+
+Sydow *et al.*, *TeachOpenCADD: a teaching platform for computer-aided drug design*, **J. Cheminform.** 2019, 11, 29;
+Sydow *et al.*, **Nucleic Acids Res.** 2022, 50, W753.
+
+### Practical Cheminformatics Tutorials — Patrick Walters
+<https://github.com/PatWalters/practical_cheminformatics_tutorials> · **MIT**
+
+- `misc/ChEMBL_data_curation` → the curation philosophy of section 3: the funnel, the treatment of censored data,
+  and the insistence on reading assay descriptions before pooling measurements.
+- `sar_analysis/find_scaffolds` → the scaffold statistics of section 6.
+- `misc/visualizing_chemical_space` → the PCA + UMAP workflow of section 7.
+
+Also his blog, *Practical Cheminformatics*: <https://practicalcheminformatics.blogspot.com>.
+
+### AI for Chemistry (EPFL CH-457) — Schwaller group (LIAC)
+<https://github.com/schwallergroup/ai4chem_course> · **MIT**
+
+- `04 - Unsupervised Learning` (`DimensionalityReduction`) → the PCA/UMAP treatment and the warnings about
+  over-reading non-linear embeddings, section 7.
+
+### MolSSI cheminformatics workshop — Jessica A. Nash
+<https://github.com/MolSSI-Education/molssi-cheminformatics> · **MIT**
+
+- `03_molecular_similarity` → the Tanimoto explanation and the pairwise-similarity exercises of section 5.
+
+### RDKit
+<https://www.rdkit.org> · **BSD-3-Clause**
+
+Structure parsing and standardisation (`rdMolStandardize`), descriptors, Morgan fingerprint generation, Tanimoto
+similarity, Bemis–Murcko scaffolds and all molecule depiction. Greg Landrum and the RDKit contributors.
+The standardisation policy of section 3 follows the ChEMBL structure pipeline: Bento *et al.*,
+*An open source chemical structure curation pipeline using RDKit*, **J. Cheminform.** 2020, 12, 51.
+
+---
+
+## Data
+
+### ChEMBL — EMBL-EBI
+<https://www.ebi.ac.uk/chembl/> · data **CC BY-SA 3.0**
+
+All CYP3A4 (`CHEMBL340`) bioactivity records, assay metadata and target annotation, retrieved from the ChEMBL REST
+API and the web interface. Release, retrieval date, query URLs and checksums are recorded in
+[`data/provenance.json`](data/provenance.json).
+
+Zdrazil *et al.*, *The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types
+and time periods*, **Nucleic Acids Res.** 2024, 52, D1180.
+
+### OpenADMET CYP Inhibition Blind Challenge
+<https://huggingface.co/datasets/openadmet/cyp-challenge-train-test> · **Apache-2.0**
+
+The direct-inhibition training file (`cyp-challenge-TRAIN_inhibition.csv`), pinned to revision
+`146282d2ce1532f1803679a834a9bec9dac1e482`. Data generated by **Octant** with the **Fraser lab** (UCSF) for
+OpenADMET. The assay description used in the notebook's section 0 comes from the challenge announcement,
+<https://openadmet.ghost.io/announcing-openadmets-cyp-inhibition-blind-challenge/> (CC BY 4.0).
+
+---
+
+## Papers cited in the notebook
+
+- Zdrazil *et al.*, *The ChEMBL Database in 2023*, **Nucleic Acids Res.** 2024, 52, D1180.
+- Landrum & Riniker, *Combining IC50 or Ki values from different sources is a source of significant noise*,
+  **J. Chem. Inf. Model.** 2024, 64, 1560.
+- Bemis & Murcko, *The properties of known drugs. 1. Molecular frameworks*, **J. Med. Chem.** 1996, 39, 2887.
+- Rogers & Hahn, *Extended-connectivity fingerprints*, **J. Chem. Inf. Model.** 2010, 50, 742.
+- Bento *et al.*, *An open source chemical structure curation pipeline using RDKit*, **J. Cheminform.** 2020, 12, 51.
+- McInnes, Healy & Melville, *UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction*,
+  **arXiv:1802.03426**, 2018.
+- Liu, Ting & Zhou, *Isolation Forest*, **ICDM** 2008, 413.
+
+---
+
+## Software
+
+`rdkit`, `pandas`, `numpy`, `scikit-learn`, `umap-learn`, `matplotlib`, `seaborn`, `plotly`, `mols2grid`,
+`ipywidgets`, `requests`, `chembl_webresource_client`, `jupytext`, `nbformat`, `nbclient` — thank you to their
+maintainers.
+
+---
+
+## Assembly
+
+The sequencing, the code, the exercises and the connective text of this workshop were assembled with **Claude**
+(Anthropic) and then reviewed. Any errors introduced along the way are ours, not the original authors'.

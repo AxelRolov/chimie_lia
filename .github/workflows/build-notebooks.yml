@@ -1,0 +1,91 @@
+name: build notebooks
+
+# Rebuilds the notebook from the jupytext source in src_nb/ and checks that the committed
+# .ipynb is in sync and valid. Does NOT execute it (that needs the full scientific stack).
+#
+# For this check to be meaningful, `src_nb/build.py` must be *reproducible*: rebuilding an
+# unchanged source has to produce a byte-identical notebook. nbformat >= 4.5 assigns a random
+# per-cell "id" on every write, so build.py overrides those with deterministic, content-derived
+# ids (see assign_stable_ids there). If you change build.py, keep that property.
+
+on:
+  push:
+    paths: ["src_nb/**", ".github/workflows/build-notebooks.yml"]
+  pull_request:
+    paths: ["src_nb/**"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Bounded ranges: jupytext decides how the source splits into cells, so a major version
+      # bump could legitimately change the output. Widen deliberately, not by accident.
+      - name: Install the build tools
+        run: pip install "jupytext>=1.19,<2" "nbformat>=5.10,<6"
+
+      - name: Rebuild the notebook
+        run: python src_nb/build.py
+
+      - name: Fail if the committed notebook is out of date
+        run: |
+          if ! git diff --quiet -- notebooks/; then
+            echo "::error::notebooks/ is out of sync with src_nb/. Run 'python src_nb/build.py' and commit the result."
+            git diff --stat -- notebooks/
+            exit 1
+          fi
+          echo "notebooks/ is up to date"
+
+      - name: Check the build is reproducible
+        run: |
+          python src_nb/build.py
+          if ! git diff --quiet -- notebooks/; then
+            echo "::error::build.py is not reproducible: two consecutive builds differ."
+            exit 1
+          fi
+          echo "a second build is a no-op"
+
+      - name: Validate structure (badge, no stored outputs, unique cell ids)
+        run: |
+          python - <<'PY'
+          import json, re, sys
+          from pathlib import Path
+          import nbformat
+
+          problems = []
+          for p in sorted(Path("notebooks").glob("*.ipynb")):
+              nb = json.loads(p.read_text())
+              first = "".join(nb["cells"][0]["source"])
+
+              m = re.search(r"blob/main/notebooks/([^\"]+\.ipynb)", first)
+              if not m:
+                  problems.append(f"{p}: no Colab badge")
+              elif m.group(1) != p.name:
+                  problems.append(f"{p}: badge points at {m.group(1)}")
+
+              if "Credits" not in first:
+                  problems.append(f"{p}: first cell has no credits block")
+
+              ids = [c.get("id") for c in nb["cells"]]
+              if len(set(ids)) != len(ids):
+                  problems.append(f"{p}: duplicate cell ids")
+
+              for i, c in enumerate(nb["cells"]):
+                  if c["cell_type"] == "code" and c.get("outputs"):
+                      problems.append(f"{p}: cell {i} has stored outputs")
+                  if c["cell_type"] == "code" and c.get("execution_count") is not None:
+                      problems.append(f"{p}: cell {i} has an execution count")
+
+              nbformat.validate(nbformat.reads(p.read_text(), as_version=4))
+
+          if problems:
+              print("\n".join(f"::error::{x}" for x in problems))
+              sys.exit(1)
+          print("all notebooks OK")
+          PY
