@@ -96,7 +96,7 @@ sns.set_theme(style="whitegrid", palette="deep")
 SRC_COLOR = {"ChEMBL": "#4C72B0", "OpenADMET": "#DD8452", "both": "#55A868"}
 RANDOM_SEED = 42
 
-REPO_RAW = "https://raw.githubusercontent.com/AxelRolov/chimie_lia/main"
+REPO_RAW = "https://raw.githubusercontent.com/AxelRolov/chimie_lia/colab-workshop"   # see BRANCH in src_nb/build.py
 
 def data_path(filename):
     """Local copy if the repository is checked out, otherwise the raw GitHub URL (works in Colab)."""

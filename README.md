@@ -3,7 +3,7 @@
 A **two-hour, self-contained chemoinformatics workshop** that runs start to finish in Google Colab.
 Click the badge, run the cells, no installation.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AxelRolov/chimie_lia/blob/main/notebooks/01_cyp3a4_chembl_vs_openadmet.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AxelRolov/chimie_lia/blob/colab-workshop/notebooks/01_cyp3a4_chembl_vs_openadmet.ipynb)
 
 ## The question
 
@@ -97,8 +97,9 @@ python utils/prepare_cached_data.py            # re-download and re-derive every
 python utils/prepare_cached_data.py --offline  # re-derive only, from the cached raw files
 ```
 
-If you fork this repository, change `REPO` in `src_nb/build.py` and `REPO_RAW` in the notebook's setup cell so the
-badge and the data downloads point at your fork.
+This workshop currently lives on the **`colab-workshop`** branch, and `BRANCH` in `src_nb/build.py` plus `REPO_RAW`
+in the notebook's setup cell point there. If it is merged to `main`, set both back to `main` and rebuild. If you
+fork the repository, change `REPO` in `src_nb/build.py` too.
 
 ```
 notebooks/     the .ipynb the students open (generated — do not edit by hand)

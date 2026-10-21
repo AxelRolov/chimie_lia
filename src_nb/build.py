@@ -28,7 +28,10 @@ OUT = ROOT / "notebooks"
 OUT.mkdir(exist_ok=True)
 
 REPO = "AxelRolov/chimie_lia"
-BRANCH = "main"
+# The Colab badge and the raw-data URLs must point at the branch this notebook lives on.
+# main currently holds the marimo/molab version of this workshop; set BRANCH back to "main"
+# (and REPO_RAW in the notebook's setup cell) if this branch is merged there.
+BRANCH = "colab-workshop"
 
 
 def colab_badge(nb_name: str) -> str:
