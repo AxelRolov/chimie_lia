@@ -1,0 +1,9 @@
+,ChEMBL,OpenADMET
+rows in the downloaded file,13887,4905
+rows with a CYP3A4 IC50 / pIC50,13887,2335
+quantitative records after curation,4346,2335
+censored records (kept separately),4022,0
+… of which with a valid standardised structure,8368,2335
+"OpenADMET values with pIC50 < 4 (flagged, kept)",0,944
+unique standardised structures,7249,2335
+… present in both sources (exact identity),8,8

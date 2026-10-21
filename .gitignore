@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+# marimo session state and caches
+__marimo__/
+.marimo/
+# live downloads made during class (the cached snapshot in data/ is what is committed)
+workshop_cache/
+notebooks/workshop_cache/
+notebooks/outputs/
+.DS_Store

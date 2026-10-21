@@ -1,0 +1,14 @@
+# Versions with which the workshop was tested end to end (Python 3.12, CPU only, 2026-10-21).
+# On molab nothing needs installing: the notebook header lists the same packages (PEP 723).
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#   marimo edit notebooks/cyp3a4_chembl_vs_openadmet.py
+marimo==0.25.2
+rdkit==2026.9.1
+pandas==3.0.6
+numpy==2.5.4
+scikit-learn==1.9.1
+umap-learn==0.5.12
+altair==6.3.0
+requests==2.34.2

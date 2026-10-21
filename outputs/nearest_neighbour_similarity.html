@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-25b893ddfa40ebf7eb3a0976cbd427fe"}, "mark": {"type": "bar", "width": 9}, "encoding": {"color": {"field": "covered", "legend": {"title": "T \u2265 0.40"}, "scale": {"domain": [true, false], "range": ["#3b6fb6", "#e07b39"]}, "type": "nominal"}, "tooltip": [{"field": "bin", "type": "quantitative"}, {"field": "molecules", "type": "quantitative"}], "x": {"field": "bin", "scale": {"domain": [0, 1], "nice": false}, "title": "Tanimoto to the nearest non-identical ChEMBL structure", "type": "quantitative"}, "y": {"field": "molecules", "stack": true, "type": "quantitative"}}}, {"data": {"name": "data-de3a046ae0d883a7eff7fdf6d1986408"}, "mark": {"type": "rule", "color": "black", "strokeDash": [4, 3]}, "encoding": {"x": {"field": "t", "type": "quantitative"}}}], "height": 250, "width": 520, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-25b893ddfa40ebf7eb3a0976cbd427fe": [{"bin": 0.15000000596046448, "covered": false, "molecules": 1}, {"bin": 0.17499999701976776, "covered": false, "molecules": 2}, {"bin": 0.20000000298023224, "covered": false, "molecules": 18}, {"bin": 0.22500000894069672, "covered": false, "molecules": 129}, {"bin": 0.25, "covered": false, "molecules": 315}, {"bin": 0.2750000059604645, "covered": false, "molecules": 490}, {"bin": 0.30000001192092896, "covered": false, "molecules": 528}, {"bin": 0.32500001788139343, "covered": false, "molecules": 323}, {"bin": 0.3499999940395355, "covered": false, "molecules": 245}, {"bin": 0.375, "covered": false, "molecules": 124}, {"bin": 0.4000000059604645, "covered": true, "molecules": 69}, {"bin": 0.42500001192092896, "covered": true, "molecules": 28}, {"bin": 0.45000001788139343, "covered": true, "molecules": 17}, {"bin": 0.4749999940395355, "covered": true, "molecules": 13}, {"bin": 0.5, "covered": true, "molecules": 5}, {"bin": 0.5250000357627869, "covered": true, "molecules": 9}, {"bin": 0.550000011920929, "covered": true, "molecules": 4}, {"bin": 0.574999988079071, "covered": true, "molecules": 3}, {"bin": 0.6000000238418579, "covered": true, "molecules": 3}, {"bin": 0.625, "covered": true, "molecules": 1}, {"bin": 0.675000011920929, "covered": true, "molecules": 1}, {"bin": 0.699999988079071, "covered": true, "molecules": 1}, {"bin": 0.800000011920929, "covered": true, "molecules": 1}, {"bin": 0.824999988079071, "covered": true, "molecules": 1}, {"bin": 0.8500000238418579, "covered": true, "molecules": 2}, {"bin": 0.875, "covered": true, "molecules": 1}, {"bin": 0.9750000238418579, "covered": true, "molecules": 1}], "data-de3a046ae0d883a7eff7fdf6d1986408": [{"t": 0.4}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+name: check workshop
+
+# Lints the marimo notebook, verifies the cached data against data/provenance.json, and runs the whole
+# notebook headless on CPU twice (scripts/verify_workshop.py): once with default widget values, the
+# equivalent of a clean-kernel run, and once with simulated clicks and an uploaded export. No live ChEMBL
+# download is triggered. The OpenADMET file is read from its pinned Hugging Face revision and falls back to
+# the cached copy, as in class.
+
+on:
+  push:
+    paths: ["notebooks/**", "scripts/**", "data/**", "requirements.txt", ".github/workflows/check.yml"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the tested versions
+        run: pip install -r requirements.txt
+
+      - name: Lint the notebook
+        run: marimo check notebooks/cyp3a4_chembl_vs_openadmet.py
+
+      - name: Verify cached data checksums
+        run: python scripts/prepare_data.py --check
+
+      - name: Run the notebook end to end (default widgets, then simulated clicks) and check the results
+        run: python scripts/verify_workshop.py

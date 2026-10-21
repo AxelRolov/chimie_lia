@@ -1,0 +1,74 @@
+{
+  "prepared_utc": "2026-10-21T11:20:47Z",
+  "chembl": {
+    "release": "ChEMBL_37",
+    "release_date": "2026-05-01",
+    "retrieved_utc": "2026-10-21T11:20:47Z",
+    "target": "CHEMBL340",
+    "uniprot": "P08684",
+    "activity_query_url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL340&standard_type=IC50&limit=1000",
+    "assay_query": "https://www.ebi.ac.uk/chembl/api/data/assay.json?assay_chembl_id__in=<100 IDs>&limit=1000",
+    "web_export_activity_query": "target_chembl_id:CHEMBL340 AND standard_type:\"IC50\"",
+    "web_export_assay_query": "target_chembl_id:CHEMBL340",
+    "web_export_pages": {
+      "activities": "https://www.ebi.ac.uk/chembl/explore/activities/QUERYSTRING:target_chembl_id%3ACHEMBL340%20AND%20standard_type%3A%22IC50%22",
+      "assays": "https://www.ebi.ac.uk/chembl/explore/assays/QUERYSTRING:target_chembl_id%3ACHEMBL340"
+    },
+    "n_activity_records": 13887,
+    "n_assays": 2810,
+    "licence": "CC BY-SA 3.0"
+  },
+  "openadmet": {
+    "dataset": "openadmet/cyp-challenge-train-test",
+    "config": "default",
+    "split": "train",
+    "revision": "146282d2ce1532f1803679a834a9bec9dac1e482",
+    "train_url": "https://huggingface.co/datasets/openadmet/cyp-challenge-train-test/resolve/146282d2ce1532f1803679a834a9bec9dac1e482/cyp-challenge-TRAIN_inhibition.csv",
+    "test_url": "https://huggingface.co/datasets/openadmet/cyp-challenge-train-test/resolve/146282d2ce1532f1803679a834a9bec9dac1e482/cyp-challenge-TEST-BLINDED.csv",
+    "rows": 4905,
+    "cyp3a4_values": 2335,
+    "licence": "Apache-2.0 (dataset card)"
+  },
+  "files": {
+    "openadmet_train": {
+      "path": "data/openadmet/cyp-challenge-TRAIN_inhibition.csv",
+      "sha256": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278",
+      "records": 4905
+    },
+    "openadmet_test": {
+      "path": "data/openadmet/cyp-challenge-TEST-BLINDED.csv",
+      "sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+      "records": 750
+    },
+    "api_activities": {
+      "path": "data/chembl/api/CHEMBL340_IC50_activities.jsonl.gz",
+      "sha256": "c7035239ccb1551c470b534f1ab41d06f8bfcba22883f49c7afda2b332d922f2",
+      "records": 13887
+    },
+    "api_assays": {
+      "path": "data/chembl/api/CHEMBL340_IC50_assays.jsonl.gz",
+      "sha256": "04aa97c483088287c6fd8d0bfa0eaccb6023603ccf53ed1bed1eb315ce47ba1b",
+      "records": 2810
+    },
+    "api_target": {
+      "path": "data/chembl/api/CHEMBL340_target.json",
+      "sha256": "49b3f4bcac731c93ece609b6dd5eb88473f0f3e468a2f7094140ed68f533f346",
+      "records": 1
+    },
+    "ui_activities": {
+      "path": "data/chembl/manual/CHEMBL340_IC50_activities_web_export.zip",
+      "sha256": "76ebdcb6b6f52172d85b6110cbe87cf89c5f7f7fa568fc6f81f748cafedc46a8",
+      "records": 13887
+    },
+    "ui_assays": {
+      "path": "data/chembl/manual/CHEMBL340_assays_web_export.zip",
+      "sha256": "0ed3f7e148c648f659061bbabb7005d48e8806d942ca5b86fac7e528df2d8c4f",
+      "records": 5602
+    },
+    "assay_review": {
+      "path": "data/chembl/assay_review.csv",
+      "sha256": "8235291ea3e339b05c96f8f8df2a7140be40d500b400047e4b8cff7996fa9c37",
+      "records": 2276
+    }
+  }
+}

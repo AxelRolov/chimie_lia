@@ -1,0 +1,3 @@
+route,records,quantitative,censored,excluded,same raw records as reference,same retained records,same retained activity IDs
+API · cached snapshot,13887,4346,4022,5519,True,True,True
+Manual web export · cached snapshot,13887,4346,4022,5519,True,True,True
