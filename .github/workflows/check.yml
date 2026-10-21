@@ -27,10 +27,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Lint the notebook
-        run: marimo check notebooks/cyp3a4_chembl_vs_openadmet.py
+        run: marimo check notebooks/cyp3a4_chembl_vs_openadmet.py notebooks/cyp3a4_chembl_vs_openadmet_fr.py
 
       - name: Verify cached data checksums
         run: python scripts/prepare_data.py --check
 
       - name: Run the notebook end to end (default widgets, then simulated clicks) and check the results
         run: python scripts/verify_workshop.py
+
+      - name: Same checks on the French version
+        run: python scripts/verify_workshop.py --notebook cyp3a4_chembl_vs_openadmet_fr

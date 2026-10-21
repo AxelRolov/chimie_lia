@@ -2,7 +2,9 @@
 
 A two-hour, hands-on chemoinformatics workshop in a reactive [marimo](https://marimo.io) notebook.
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/AxelRolov/chimie_lia/blob/main/notebooks/cyp3a4_chembl_vs_openadmet.py)
+| English | Français |
+|---|---|
+| [![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/AxelRolov/chimie_lia/blob/main/notebooks/cyp3a4_chembl_vs_openadmet.py) | [![Ouvrir dans molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/AxelRolov/chimie_lia/blob/main/notebooks/cyp3a4_chembl_vs_openadmet_fr.py) |
 
 > **Central question.** *How well does ChEMBL cover the chemical space of the OpenADMET compounds?*
 
@@ -17,11 +19,20 @@ separate per source and per assay and are never averaged across them.
 
 ## For students
 
-1. Click **Open in molab** above. The notebook runs in your browser on a cloud machine, with nothing to install.
-   molab installs the packages listed at the top of the notebook.
-2. Work from top to bottom. The notebook is *reactive*: moving a slider or clicking a table re-runs every cell
-   that depends on it.
-3. The five ✏️ exercises have hidden 🔑 solutions. Try each exercise before you open its solution.
+1. Click **Open in molab** above, in English or in French. A read-only preview opens.
+2. Sign in to marimo, which is free, with a Google account or an e-mail address. Then either:
+   - click **Fork** to get your own copy, which is saved in your molab workspace (recommended); or
+   - click **Run it now** for a temporary session that is not saved.
+3. When molab asks *"Run this notebook on a server?"*, click **Run on server**. molab installs the packages listed
+   at the top of the notebook and downloads the cached data from this repository. The first full run takes about
+   a minute.
+4. Work from top to bottom. The notebook is *reactive*: moving a slider or clicking a table row re-runs every cell
+   that depends on it. To see the code of a text cell, click it.
+5. The five ✏️ exercises have hidden 🔑 solutions. Try each exercise before you open its solution.
+6. To keep your work, use your fork. You can also download the notebook from the top-right menu.
+
+molab shuts down notebooks after 90 minutes without activity. If yours stops, re-run it from the menu; a full run takes
+about a minute.
 
 To run the notebook locally instead, install [uv](https://docs.astral.sh/uv/) and run:
 
@@ -49,6 +60,7 @@ You can also use `pip install -r requirements.txt` followed by `marimo edit note
 
 ```
 notebooks/cyp3a4_chembl_vs_openadmet.py   the workshop (marimo notebook; also a plain Python file)
+notebooks/cyp3a4_chembl_vs_openadmet_fr.py  the same workshop in French
 scripts/prepare_data.py                   rebuilds the cached data and data/provenance.json before class
 scripts/verify_workshop.py                runs the notebook headless (default and simulated clicks) and checks it
 data/                                     cached teaching data with provenance (see data/README.md)

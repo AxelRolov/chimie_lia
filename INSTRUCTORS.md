@@ -2,7 +2,9 @@
 
 A two-hour workshop for students who know basic Python and pandas. Everything runs in
 [molab](https://molab.marimo.io) (marimo's free cloud: 4 CPUs and 32 GB of RAM, with no installation). The
-notebook is `notebooks/cyp3a4_chembl_vs_openadmet.py`.
+notebook is `notebooks/cyp3a4_chembl_vs_openadmet.py`; a French translation with identical code is
+`notebooks/cyp3a4_chembl_vs_openadmet_fr.py` (labels of data values — curation reasons, assay classes,
+option values — stay in English in both, because the code uses them).
 
 > **Central question.** *How well does ChEMBL cover the chemical space of the OpenADMET compounds?*
 > **Scientific thread.** The same protein does not make measurements interchangeable. Structures are compared

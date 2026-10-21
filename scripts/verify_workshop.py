@@ -2,6 +2,7 @@
 
     python scripts/verify_workshop.py           # clean run + interaction run (cached data only)
     python scripts/verify_workshop.py --live    # also download ChEMBL live and push it through the same pipeline
+    python scripts/verify_workshop.py --notebook cyp3a4_chembl_vs_openadmet_fr   # the French version
 
 The notebook is run headless with marimo's script runner, exactly as `python notebooks/...py` would, once with the
 default widget values ("clean kernel") and once with widget values replaced by fakes that stand for a student's
@@ -27,7 +28,9 @@ from rdkit import Chem, DataStructs
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "notebooks"))
-import cyp3a4_chembl_vs_openadmet as nb  # noqa: E402
+import importlib  # noqa: E402
+
+nb = None  # the notebook module, imported in main() (English by default, --notebook for the French one)
 
 RESULTS: list[tuple[str, bool, str]] = []
 
@@ -199,7 +202,11 @@ def checks_on_live_run(a: dict, c: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--live", action="store_true", help="also test a live ChEMBL download (≈ 2 min, needs network)")
+    parser.add_argument("--notebook", default="cyp3a4_chembl_vs_openadmet", help="notebook module in notebooks/")
     args = parser.parse_args()
+    global nb
+    nb = importlib.import_module(args.notebook)
+    print(f"notebook: notebooks/{args.notebook}.py")
 
     a = run("clean run, default widget values")
     checks_on_clean_run(a)
